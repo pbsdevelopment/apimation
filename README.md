@@ -11,7 +11,8 @@ Description of test automation:
 ------------------------------------------------------
 Install.sh - to download and install appimation
 ------------------------------------------------------
-SmokeTests.sh - to run smoke tests on basic application run, user create
+SmokeTests.sh - to run smoke tests on basic application run, user create with existing login, 
+user creating with not-existing login, enter correct pass, enter incorrect pass, enter invalid email, enter valid email
 ------------------------------------------------------
 Requirements:
 ------------------------------------------------------
