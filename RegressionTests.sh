@@ -3,12 +3,15 @@
 
 source "./assert.sh"
 
-new_email="some_user@testdevlab.com"
-email_exist="boris.panteleev@testdevlab.com"
-invalid_email="qwerty"
+email="email@dev.com"
+blank_email=""
+email_bad="thisisbademail"
+email_with_error="qwerty@1.1@"
 
 project="apimation"
+
 pass="qwerty"
+blank_pass=""
 
 apimation_dir=/var/apimation
 
@@ -22,7 +25,7 @@ cd $WORKING_DIR
 expect - <<EOF
 spawn ./apimation user create
 expect "Enter user email:"
-send "$new_email\n"
+send "$blank_email\n"
 #send "\n"
 expect "Enter project name:"
 send "$project\n"
@@ -39,7 +42,7 @@ EOF
 expect - <<EOF
 spawn ./apimation user create
 expect "Enter user email:"
-send "$email_exist\n"
+send "$email_with_error\n"
 #send "\n"
 expect "Enter project name:"
 send "$project\n"
@@ -63,6 +66,40 @@ send "$project\n"
 #send "\n"
 expect "Create new password:"
 send "$pass\n"
+#send "\n"
+expect "Re-type Password:"
+send "$pass\n"
+#send "\n"
+sleep 10
+EOF
+
+expect - <<EOF
+spawn ./apimation user create
+expect "Enter user email:"
+send "$email\n"
+#send "\n"
+expect "Enter project name:"
+send "$project\n"
+#send "\n"
+expect "Create new password:"
+send "$pass\n"
+#send "\n"
+expect "Re-type Password:"
+send "$pass\n"
+#send "\n"
+sleep 10
+EOF
+
+expect - <<EOF
+spawn ./apimation user create
+expect "Enter user email:"
+send "$email\n"
+#send "\n"
+expect "Enter project name:"
+send "$project\n"
+#send "\n"
+expect "Create new password:"
+send "$blank_pass\n"
 #send "\n"
 expect "Re-type Password:"
 send "$pass\n"
