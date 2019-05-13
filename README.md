@@ -17,12 +17,15 @@ user creating with not-existing login, enter correct pass, enter incorrect pass,
 AcceptanceTests.sh - to run tests for generating test assets and executing tests
 ------------------------------------------------------
 RegressionTests.sh - contains all regression tests for extended testing on different input parameters
+
 Can use Data Driven Testing (not implemented currently)
 ------------------------------------------------------
 Requirements:
 ------------------------------------------------------
 Linux - any version
+
 Bash - last version
+
 Expect - install it with apt, yum or any other repository packaging tool
 ------------------------------------------------------
 |---------|
