@@ -29,8 +29,29 @@ echo "Finished!"
 echo "Generating test case:"
 ./apimation generate case case_1 -f feature_1
 echo "Finished!"
+# TBD - assert
 echo "Executing test:"
 ./apimation run case case_1
+
+# TBD - assert
+echo "Generating test step:"
+./apimation generate step step_1 -f feature_1
+./apimation generate step step_1 -f feature_2
+./apimation generate step step_1 -f feature_3
+./apimation generate step step_1 -f feature_4
+echo "Finished!"
+# TBD - assert
+echo "Generating test case:"
+./apimation generate case case_1 -f feature_1
+./apimation generate case case_2 -f feature_1
+./apimation generate case case_1 -f feature_2
+./apimation generate case case_1 -f feature_4
+echo "Finished!"
+# TBD - assert
+echo "Executing test:"
+./apimation run case case_1
+./apimation run case case_2
+./apimation run case case_3
 echo "Finished!"
 echo $TXT
 echo $PASS
